@@ -12,7 +12,7 @@ $tgloutput = $_POST['tgloutput']; //variabel jk berisi method jenis kelamin
 
  mysqli_query($host,"INSERT INTO penyuluhan VALUES('','$nama', '$instansi','$status','$tglinput','$tgloutput')");
   echo mysqli_error($host);
-   header("location:pengajuan_jadwal.php");
+   header("location:inc/penyuluhan/pengajuan_jadwal.php");
 
 
 

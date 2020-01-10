@@ -95,16 +95,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Penyuluhan</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
+  <link rel="stylesheet" href="inc/penyuluhan/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="inc/penyuluhan/vendors/base/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
-  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="inc/penyuluhan/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="cssp/style.css">
+  <link rel="stylesheet" href="inc/penyuluhan/cssp/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="imagesp/favicon.png" />
+  <link rel="shortcut icon" href="inc/penyuluhan/imagesp/favicon.png" />
 </head>
 <body>
   <div class="container-scroller">
@@ -118,63 +118,71 @@
               <div class="card">
                 <div class="card-body">
                   <center>
-                  <p class="card-title">EDIT DATA</p>
+                  <p class="card-title">JADWAL PENYULUHAN</p>
                 </center>
 
-                <?php 
-                include "koneksi.php"; //menyisipkan file koneksi.php
-                $id = $_GET['id']; //menyimpan data id yang akan dikirim melalui perantara URL
-                $query_mysql = mysqli_query($host, "SELECT * FROM penyuluhan WHERE id='$id'")or die(mysql_error());
-                /*argumen pertama fungsi mysql_query(). Pada bagian inilah kita menulis query MySQL yang berisi 
-                data pada tabel siswa. 
-                Query tersebut selanjutnya akan dikirim kepada MySQL Server untuk diproses.
-                Jika MySQL gagal diakses, maka fungsi die() akan memerintahkan PHP untuk menghentikan program*/
-                $nomor = 1;
-                while($data = mysqli_fetch_array($query_mysql)){
-                    //mengubah baris data yang dipilih menjadi pecahan array
-                ?>
-                <form action="update_admin.php" method="post">
-                <!--mendefinisikan tindakan yang dilakukan oleh form dikirimkan-->		
-                    <table>
-                        <tr>
-                            <td>Nama</td>
-                            <td>
-                                <!--menginputkan nim-->
-                                <input type="hidden" name="nama" value="<?php echo $data['nama'] ?>">
-                                <!--value terbentuk karena data yang terdapat pada inputan di variabel id-->
-                                <input type="text" name="nama" value="<?php echo $data['nama'] ?>">
-                            </td>					
-                        </tr>	
-                        <tr>
-                            <td>Instansi</td>
-                            <!--menginputkan nama-->
-                            <td><input type="text" name="nama_instansi" value="<?php echo $data['nama_instansi'] ?>"></td>					
-                        </tr>
-                        <tr>
-                            <td>Tanggal Input</td>
-                            <!--menginputkan kelas-->
-                            <td><input type="date" name="tglinput" id="tglinput" value="<?=date('Y-m-d')?>" /></td>					
-                        </tr>	
-                        <tr>
-                            <td>Tanggal Output</td>
-                            <!--menginputkan alamat-->
-                            <td><input type="date" name="tgloutput" id="tgloutput" value="<?date('Y-m-d')?>" /></td>					
-                        </tr>	
-                    
-                        <tr>
-                            <td></td>
-                            <!--menyimpan data-->
-                            <td><input type="submit" value="Simpan"></td>					
-                        </tr>				
+                <div class="row"> <!--membuat wrap grup kolom horizontal-->
+                  <div class="col-md-6"> <!--membuat grid sebanyak 12-->
+                 <a href="inc/penyuluhan/jadwal_penyuluhan.php" type=button class="btn btn-primary btn-block">Jadwal Penyuluhan</a> <!--wes wor-->
+                    <!-- <div class="bg-primary text-center text-white">Jadwal Penyuluhan</div> menampilkan banyaknya kolom -->
+                    <br/>
+                  </div>
+                  <div class="col-md-6"> <!--membuat grid sebanyak 12-->
+                    <a href="inc/penyuluhan/pengajuan_jadwal.php" button class="btn btn-primary btn-block">Pengajuan Jadwal</a> <!--menampilkan banyaknya kolom-->
+                    <br/>
+                  </div> <!--kolom yang muncul adalah 1 kolom, karena pembagian grid hanya 12-->
+                  </div>
+                 
+                  <div class="table-responsive">
+                    <table id="recent-purchases-listing" class="table">
+                      <thead>
+
+                        <!--membuat tabel dengan field yang akan ditampilkan-->
+                        <h3></h3>
+                        <!--membuat tabel dengan border 1-->
+                        <table border="1" class="table">
+                            <tr>
+                            <!--kolom pada tabel-->
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Status Report</th>
+                                <th>Instansi</th>
+                                <th>Tanggal Input</th>	
+                                <th>Tanggal Pelaksanaan</th>
+                                
+                            </tr>
+                            <?php 
+                            include "koneksi.php";//menyisipkan koneksi.php untuk menginputkan data ke database
+                            $query_mysql = mysqli_query($host,"SELECT * FROM penyuluhan")or die(mysql_error());
+                            $nomor = 1; 
+                            //variabel nomor dengan patokan 1 untuk di looping di tabelnya
+                            //while itu perulangan tanpa batas
+                            while($data = mysqli_fetch_array($query_mysql)){
+                                //mengubah baris data yang dipilih menjadi pecahan array
+                            ?>
+                            <tr>
+                                <!--variabel untuk menampung suatu data-->
+                                <td><?php echo $nomor++; ?></td> <!--perulangan pada variabel nomor-->
+                                <td><?php echo $data['nama']; ?></td> <!--variabel nim-->
+                                <td><?php echo $data['status']; ?></td> <!--variabel nama-->
+                                <td><?php echo $data['nama_instansi']; ?></td> <!--variabel kelas-->
+                                <td><?php echo $data['tanggal_input']; ?></td> <!--variabel alamat-->
+                                <td><?php echo $data['tanggal_output']; ?></td> <!--variabel jk-->
+                            </tr>
+                            <?php } ?>
+                        </table>
+                        <h3>Jumlah Penyuluhan : <?php echo $nomor-1; ?> </h3>
+                        <!--menampilkan jumlah sekelas, di -1 karena index mulai dri 1 bukan 0-->
+
+                      </tbody>
                     </table>
-                </form>
-                <?php } ?>
-
-                        </div>
-                        <!-- /.container-fluid -->
-
-                    </div>
-                    <!-- End of Main Content -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
 
         <!---footer--->
         <footer>
@@ -263,3 +271,4 @@
 </body>
 
 </html>
+

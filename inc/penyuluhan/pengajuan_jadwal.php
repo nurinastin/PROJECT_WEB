@@ -45,10 +45,12 @@
             </div>
             <!--header--->
             <header class="header-container">
-                
+                <div class="container">
                     <div class="top-row">
                         <div class="row">
-                            
+                            <div class="col-md-2 col-sm-6 col-xs-6">
+                                                  
+                            </div>
                             <div class="col-md-8 col-sm-12 col-xs-12 remove-padd">
                                 <nav class="navbar navbar-default">
                                     <div class="navbar-header page-scroll">
@@ -65,8 +67,8 @@
                                       <nav class="navbar-row">
                                         <div class="navbar-brand-wrapper d-flex justify-content-center">
                                           <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">  
-                                            <a class="navbar-brand brand-logo" href="index.php"><img src="imagesp/SINISA.png" alt="logo"/></a>
-                                            <a class="navbar-brand brand-logo-mini" href="index.php"><img src="imagesp/SINISA.png" alt="logo"/></a>
+                                            <a class="navbar-brand brand-logo" href="index.php"><img src="inc/penyuluhan/imagesp/SINISA.png" alt="logo"/></a>
+                                            <a class="navbar-brand brand-logo-mini" href="index.php"><img src="inc/penyuluhan/imagesp/SINISA.png" alt="logo"/></a>
                                           </div>  
                                         </div>
                                       </nav>
@@ -79,7 +81,7 @@
                                     
                                 </nav>
                             </div>
-                        
+                        </div>
                     </div>
                 </div>
             </header>
@@ -93,16 +95,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Penyuluhan</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
+  <link rel="stylesheet" href="inc/penyuluhan/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="inc/penyuluhan/vendors/base/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
-  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="inc/penyuluhan/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="cssp/style.css">
+  <link rel="stylesheet" href="inc/penyuluhan/cssp/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="imagesp/favicon.png" />
+  <link rel="shortcut icon" href="inc/penyuluhan/imagesp/favicon.png" />
 </head>
 <body>
   <div class="container-scroller">
@@ -116,21 +118,51 @@
               <div class="card">
                 <div class="card-body">
                   <center>
-                  <p class="card-title">EDIT PENGAJUAN JADWAL</p>
+                  <p class="card-title">PENGAJUAN JADWAL</p>
                 </center>
 
                 <div class="row"> <!--membuat wrap grup kolom horizontal-->
                 <div class="col-md-6"> <!--membuat grid sebanyak 12-->
-                 <a href="jadwal_penyuluhan.php" type=button class="btn btn-primary btn-block">Jadwal Penyuluhan</a> <!--wes wor-->
+                 <a href="inc/penyuluhan/jadwal_penyuluhan.php" type=button class="btn btn-primary btn-block">Jadwal Penyuluhan</a> <!--wes wor-->
                     <!-- <div class="bg-primary text-center text-white">Jadwal Penyuluhan</div> menampilkan banyaknya kolom -->
                     <br/>
                   </div>
                   <div class="col-md-6"> <!--membuat grid sebanyak 12-->
-                    <a href="pengajuan_jadwal.php" button class="btn btn-primary btn-block">Pengajuan Jadwal</a> <!--menampilkan banyaknya kolom-->
+                    <a href="inc/penyuluhan/pengajuan_jadwal.php" button class="btn btn-primary btn-block">Pengajuan Jadwal</a> <!--menampilkan banyaknya kolom-->
                     <br/>
                   </div> <!--kolom yang muncul adalah 1 kolom, karena pembagian grid hanya 12-->
                   </div>
                  
+                  <div class="table-responsive">
+                    <table id="recent-purchases-listing" class="table">
+                      <thead>
+
+                      <div class="container-fluid">
+                        <form action="input_aksi.php" method="post" enctype="multipart/form-data">	
+                        <table>
+                            <tr>
+                                <td>Nama</td>
+                                <td><input type="text" name="nama"></td>					
+                            </tr>	
+                            <tr>
+                                <td>Instansi</td>
+                                <td><input type="text" name="nama_instansi"></td>					
+                            </tr>		
+                            <tr>
+                                <td for="tglinput">Tanggal Input</td>
+                                <td><input type="date" name="tglinput" id="tglinput" value="<?=date('Y-m-d')?>" /></td>					
+                            </tr>
+                            <tr>
+                                <td for="tgloutput">Tanggal Pelaksanaan</td>
+                               <td><input type="date" name="tgloutput" id="tgloutput" value="<?date('Y-m-d')?>" /></td>				
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="submit" value="tambah"></td>					
+                            </tr>				
+                        </table>
+                        </form>
+
                         <!--membuat tabel dengan border 1-->
                         <h3></h3>
                         <table border="1" class="table">
@@ -142,7 +174,6 @@
                                 <th>Instansi</th>
                                 <th>Tanggal Input</th>	
                                 <th>Tanggal Pelaksanaan</th>
-                                <th>Aksi</th>
                                 
                             </tr>
                             <?php 
@@ -162,12 +193,6 @@
                                 <td><?php echo $data['nama_instansi']; ?></td> <!--variabel kelas-->
                                 <td><?php echo $data['tanggal_input']; ?></td> <!--variabel alamat-->
                                 <td><?php echo $data['tanggal_output']; ?></td> <!--variabel jk-->
-                                <td>
-                                    <a class="edit" href="edit_admin.php?id=<?php echo $data['id']; ?>">Edit</a> |
-                                    <!--menghubungkan ke edit.php dari data id-->
-                                    <a class="hapus" href="hapus.php?id=<?php echo $data['id']; ?>">Hapus</a>	
-                                    <!--menghubungkan ke hapus.php dari data id-->				
-                                </td>
                             </tr>
                             <?php } ?>
                         </table>

@@ -67,8 +67,8 @@
                                       <nav class="navbar-row">
                                         <div class="navbar-brand-wrapper d-flex justify-content-center">
                                           <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">  
-                                            <a class="navbar-brand brand-logo" href="index.php"><img src="imagesp/SINISA.png" alt="logo"/></a>
-                                            <a class="navbar-brand brand-logo-mini" href="index.php"><img src="imagesp/SINISA.png" alt="logo"/></a>
+                                            <a class="navbar-brand brand-logo" href="index.php"><img src="inc/penyuluhan/imagesp/SINISA.png" alt="logo"/></a>
+                                            <a class="navbar-brand brand-logo-mini" href="index.php"><img src="inc/penyuluhan/imagesp/SINISA.png" alt="logo"/></a>
                                           </div>  
                                         </div>
                                       </nav>
@@ -95,16 +95,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Penyuluhan</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
+  <link rel="stylesheet" href="inc/penyuluhan/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="inc/penyuluhan/vendors/base/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
-  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="inc/penyuluhan/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="cssp/style.css">
+  <link rel="stylesheet" href="inc/penyuluhan/cssp/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="imagesp/favicon.png" />
+  <link rel="shortcut icon" href="inc/penyuluhan/imagesp/favicon.png" />
 </head>
 <body>
   <div class="container-scroller">
@@ -123,12 +123,12 @@
 
                 <div class="row"> <!--membuat wrap grup kolom horizontal-->
                   <div class="col-md-6"> <!--membuat grid sebanyak 12-->
-                 <a href="jadwal_penyuluhan.php" type=button class="btn btn-primary btn-block">Jadwal Penyuluhan</a> <!--wes wor-->
+                 <a href="inc/penyuluhan/jadwal_penyuluhan.php" type=button class="btn btn-primary btn-block">Jadwal Penyuluhan</a> <!--wes wor-->
                     <!-- <div class="bg-primary text-center text-white">Jadwal Penyuluhan</div> menampilkan banyaknya kolom -->
                     <br/>
                   </div>
                   <div class="col-md-6"> <!--membuat grid sebanyak 12-->
-                    <a href="pengajuan_jadwal.php" button class="btn btn-primary btn-block">Pengajuan Jadwal</a> <!--menampilkan banyaknya kolom-->
+                    <a href="inc/penyuluhanpengajuan_jadwal.php" button class="btn btn-primary btn-block">Pengajuan Jadwal</a> <!--menampilkan banyaknya kolom-->
                     <br/>
                   </div> <!--kolom yang muncul adalah 1 kolom, karena pembagian grid hanya 12-->
                   </div>

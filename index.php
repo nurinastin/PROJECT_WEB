@@ -122,7 +122,7 @@
                                 <div class="service-image">
                                     <img alt="image" class="img-responsive" src="images/icons/key.png">
                                 </div>
-                                <h4><a href="indexpenyuluhan.php">PENYULUHAN</a></h4>
+                                <h4><a href="inc/penyuluhan/indexpenyuluhan.php">PENYULUHAN</a></h4>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 mt-25">
@@ -130,7 +130,7 @@
                                 <div class="service-image">
                                     <img alt="image" class="img-responsive" src="images/icons/car.png">
                                 </div>
-                                <h4><a href="trysinisa/sewa.php">SEWA ALAT</a></h4>
+                                <h4><a href="inc/sewa/sewa.php">SEWA ALAT</a></h4>
                             </div>
                         </div>
                         
